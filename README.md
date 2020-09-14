@@ -13,7 +13,7 @@ In this project, ETL pipeline has been created to read the given csv file and im
 
 # Use of the ETL
 Open the notebook below and run the cells.
-- Project_1B_ Project_Template.ipynb
+- [Project Template](../master/Project_1B_%20Project_Template.ipynb)
 
 ---
 Enjoy My Friend!:+1::+1::+1:
