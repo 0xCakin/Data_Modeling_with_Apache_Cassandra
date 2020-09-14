@@ -1,5 +1,31 @@
 import csv
+# Map containing column-name to data-type mapping used for inserting to cassandra
+dataMap = {
+    'itemInSession': int,
+    'sessionId': int,
+    'length': float,
+    'userId': int,
+}
+
+def getData(line, columns, index):
+    """
+    Get data from csv rows, extract the information
+    :param List[str] line: Csv rows that has the list of strings
+    :param Tuple[str] columns: Columns to be used
+    :param Dict[str, int] index: Index to be used for the dictionary
+    :return Tuple that contained extracted rows
+    :rtype Tuple[Any]
+    """
     
+    row_data = []
+    for i in columns:
+        # Extract value from row using the index
+        value = f"{line[index[i]]}"
+        
+        # Use the map to add the values
+        row_data.append(dataMap.get(i, str)(value))
+    return tuple(row_data)
+
 def insertInto (session, filename, table_name, column_names):
     """
     This funtion is created to insert data into database table from the csv
